@@ -1,10 +1,6 @@
 #!/bin/sh
 
-zshrc() {
-  echo "==========================================================="
-  echo "                  Import zshrc                             "
-  echo "-----------------------------------------------------------"
-  cat .zshrc > $HOME/.zshrc
-}
-
-zshrc
+if [ "$CODESPACES" = "true" ]; then
+  echo "source /workspaces/.codespaces/.persistedshare/dotfiles/rc" >> $HOME/.zshrc
+  sudo chsh -s /usr/bin/zsh
+fi
