@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ "$CODESPACES" = "true" ]; then
   echo "source /workspaces/.codespaces/.persistedshare/dotfiles/rc" >> $HOME/.zshrc
