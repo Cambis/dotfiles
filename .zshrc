@@ -105,20 +105,20 @@ if [ "${CODESPACES}" = "true" ]; then
 
   HOSTNAME="papawaehere"
 
-  PROMPT="
-  %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
-  %(#,%{$bg[yellow]%}%{$fg[black]%}${DEFAULT_USER}%{$reset_color%},%{$fg[cyan]%}${DEFAULT_USER}) \
-  %{$reset_color%}@ \
-  %{$fg[green]%}${HOSTNAME} \
-  %{$reset_color%}in \
-  %{$terminfo[bold]$fg[yellow]%}%~%{$reset_color%}\
-  ${hg_info}\
-  ${git_info}\
-  ${svn_info}\
-  ${venv_info}\
-  \
-  [%*] $exit_code
-  %{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
+PROMPT="
+%{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
+%(#,%{$bg[yellow]%}%{$fg[black]%}${DEFAULT_USER}%{$reset_color%},%{$fg[cyan]%}${DEFAULT_USER}) \
+%{$reset_color%}@ \
+%{$fg[green]%}${HOSTNAME} \
+%{$reset_color%}in \
+%{$terminfo[bold]$fg[yellow]%}%~%{$reset_color%}\
+${hg_info}\
+${git_info}\
+${svn_info}\
+${venv_info}\
+ \
+[%*] $exit_code
+%{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
 fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
