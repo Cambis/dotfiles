@@ -95,6 +95,30 @@ source $ZSH/oh-my-zsh.sh
 # export USER_ID=$(id -u)
 # export GROUP_ID=$(id -g)
 
+# Codespaces
+if [ "${CODESPACES}" = "true" ]; then
+  if [ ! -z "${GITHUB_USER}" ]; then 
+    DEFAULT_USER="${GITHUB_USER}"
+  else
+    DEFAULT_USER="$(whoami)"
+  fi
+
+  # PROMPT="
+  # %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
+  # %(#,%{$bg[yellow]%}%{$fg[black]%}%n%{$reset_color%},%{$fg[cyan]%}%n) \
+  # %{$reset_color%}@ \
+  # %{$fg[green]%}%m \
+  # %{$reset_color%}in \
+  # %{$terminfo[bold]$fg[yellow]%}%~%{$reset_color%}\
+  # ${hg_info}\
+  # ${git_info}\
+  # ${svn_info}\
+  # ${venv_info}\
+  # \
+  # [%*] $exit_code
+  # %{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
+fi
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
