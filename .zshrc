@@ -129,5 +129,17 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias cocker="docker-compose"
-alias mine="sudo chown -R ${USER}:${USER} ./"
+
+case `uname` in
+  Darwin)
+    alias cocker="docker-compose -f docker-compose.yml -f docker-compose-dev.yml"
+    if which ruby >/dev/null && which gem >/dev/null; then
+     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+    fi
+  ;;
+  Linux)
+   alias cocker="docker-compose" 
+   alias mine="sudo chown -R ${USER}:${USER} ./"
+  ;;
+esac
+
